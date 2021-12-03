@@ -20,7 +20,7 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('productos'),
+        title: const Text('Product App'),
         leading: IconButton(
             onPressed: () {
               authService.logout();
