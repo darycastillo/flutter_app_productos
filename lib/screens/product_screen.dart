@@ -4,7 +4,7 @@ import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
 
 import 'package:flutter_app_productos/provider/providers.dart';
-import 'package:flutter_app_productos/services/servies.dart';
+import 'package:flutter_app_productos/services/services.dart';
 import 'package:flutter_app_productos/ui/input_decorations.dart';
 import 'package:flutter_app_productos/widgets/widgets.dart';
 

@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
 import 'package:flutter_app_productos/provider/login_form_provider.dart';
 import 'package:flutter_app_productos/services/services.dart';
 import 'package:flutter_app_productos/ui/input_decorations.dart';
 import 'package:flutter_app_productos/utils/field_validations.dart';
 import 'package:flutter_app_productos/widgets/widgets.dart';
-import 'package:provider/provider.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +24,7 @@ class LoginScreen extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    "Login",
+                    "Crear cuenta",
                     style: Theme.of(context).textTheme.headline4,
                   ),
                   const SizedBox(height: 20),
@@ -37,9 +38,9 @@ class LoginScreen extends StatelessWidget {
             const SizedBox(height: 50),
             TextButton(
                 onPressed: () =>
-                    Navigator.pushReplacementNamed(context, 'register'),
+                    Navigator.pushReplacementNamed(context, 'login'),
                 child: const Text(
-                  'Crea una nueva cuenta',
+                  'Ya tienes una cuenta',
                   style: TextStyle(fontSize: 18, color: Colors.black87),
                 ),
                 style: ButtonStyle(
@@ -100,7 +101,7 @@ class _LoginForm extends StatelessWidget {
             elevation: 0,
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 80, vertical: 15),
-              child: Text(loginForm.isLoading ? 'Espere..' : 'Login',
+              child: Text(loginForm.isLoading ? 'Espere..' : 'Crear cuenta',
                   style: const TextStyle(
                       color: Colors.white, fontWeight: FontWeight.bold)),
             ),
@@ -114,7 +115,7 @@ class _LoginForm extends StatelessWidget {
 
                     loginForm.isLoading = true;
 
-                    final errorMessage = await authProvider.login(
+                    final errorMessage = await authProvider.crateuser(
                         loginForm.email, loginForm.password);
 
                     if (errorMessage == null) {
